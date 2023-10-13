@@ -10,9 +10,11 @@ def create_app():
     # Import Blueprints
     from .routes.views import views
     from .routes.stock import stock
+    from .routes.pokemon import pokemon
 
     # Register Blueprints
     app.register_blueprint(views, url_prefix="/")
     app.register_blueprint(stock, url_prefix="/stock")
+    app.register_blueprint(pokemon, url_prefix="/pokemon")
 
     return app
