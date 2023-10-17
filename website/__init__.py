@@ -8,13 +8,13 @@ def create_app():
     app.config.from_object(Config)
 
     # Import Blueprints
-    from .routes.views import views
-    from .routes.stock import stock
-    from .routes.pokemon import pokemon
+    from .routes.views import views_bp
+    from .routes.stock import stock_bp
+    from .routes.pokemon import pokemon_bp
 
     # Register Blueprints
-    app.register_blueprint(views, url_prefix="/")
-    app.register_blueprint(stock, url_prefix="/stock")
-    app.register_blueprint(pokemon, url_prefix="/pokemon")
+    app.register_blueprint(views_bp, url_prefix="/")
+    app.register_blueprint(stock_bp, url_prefix="/stock")
+    app.register_blueprint(pokemon_bp, url_prefix="/pokemon")
 
     return app

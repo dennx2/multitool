@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, url_for
 
-stock = Blueprint("stock", __name__)
+stock_bp = Blueprint("stock_bp", __name__)
 
-@stock.route('/')
+@stock_bp.route('/')
 def home():
     return "Hello Stock"

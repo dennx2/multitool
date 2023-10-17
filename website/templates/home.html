@@ -4,14 +4,14 @@
 
 {% block content %}
 <h1 class="my-4">What would you like to use?</h1>
-<div class="row row-cols-1 row-cols-md-4 g-4">
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
     <div class="col">
       <div class="card border-dark">        
         <div class="card-header">Stock</div>
         <div class="card-body text-dark">
-          <h5 class="card-title">Card title</h5>
+          <h5 class="card-title">Risk Calculator</h5>
           <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <a href="/stock" class="btn btn-primary">Go somewhere</a>
+          <a href="{{ url_for('stock_bp.home')}}" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
     </div>
@@ -19,31 +19,11 @@
         <div class="card border-dark">        
           <div class="card-header">Pokemon</div>
           <div class="card-body text-dark">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">Type Chart Quiz Game</h5>
             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <a href="/pokemon" class="btn btn-primary">Go somewhere</a>
+            <a href="{{ url_for('pokemon_bp.quiz_typechart') }}" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
-    </div>
-    <div class="col">
-    <div class="card border-dark">        
-        <div class="card-header">Header</div>
-        <div class="card-body text-dark">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
-    </div>
-    <div class="col">
-    <div class="card border-dark">        
-        <div class="card-header">Header</div>
-        <div class="card-body text-dark">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
     </div>
   </div>
 {% endblock %}
