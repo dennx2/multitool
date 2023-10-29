@@ -1,0 +1,56 @@
+{% extends "layout/base.html" %}
+
+{% block title %}Game Result{% endblock %}
+
+{% block content %}
+
+{% set score_ns = namespace() %}
+{% set score_perc = score / questions|length * 100 %}
+{% if score_perc < 50 %}
+  {% set score_ns.text_color = "text-danger" %}
+  {% set score_ns.icon = "fa-regular fa-face-sad-cry" %}
+{% elif score_perc >= 80 %}
+  {% set score_ns.text_color = "text-success" %}
+  {% set score_ns.icon = "fa-solid fa-thumbs-up" %}
+{% else %}
+  {% set score_ns.text_color = "" %}
+  {% set score_ns.icon = "" %}
+{% endif %}
+
+<p class="fs-3 mt-3 {{score_ns.text_color}}">
+  <i class="{{score_ns.icon}}"></i> Total Score: {{score}} of {{questions | length}}
+</p>
+
+
+<div class="card-group">
+{% set ns = namespace() %}
+{% set ns.num = 0 %}
+{% for question in questions %}
+    {% set ns.num = ns.num + 1 %}
+
+    <div class="card my-2">
+        <div class="card-header">
+            <strong>Question {{ ns.num }}:</strong> {{question.attack_party}} attacks {{question.defense_party}}
+        </div>
+        <div class="card-body">
+          {% if question.correct_answer == question.user_answer %}
+          <div class="card-text text-success">You got it right! The answer is {{question.correct_answer}}</div>
+          {% else %}
+          <div class="card-text text-danger">The answer is {{question.correct_answer}}</div>
+          <div class="card-text text-danger">You answered {{question.user_answer}}</div>
+          {% endif %}
+          
+          
+        </div>
+    </div>
+</div>
+        
+        
+{% endfor %}
+
+
+<form action="{{url_for('pokemon_bp.quiz_reset')}}" method="post" class="mb-3">
+    <button type="submit" class="btn btn-primary my-3 col-md-2">Play Again!</button>
+</form>
+
+{% endblock %}

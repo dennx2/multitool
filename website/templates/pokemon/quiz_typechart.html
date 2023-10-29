@@ -1,3 +1,51 @@
 {% extends "layout/base.html" %}
 
 {% block title %}Type Chart Quiz Game{% endblock %}
+
+{% block content %}
+
+<h1 class="my-4">Type Chart Quiz Game</h1>
+
+<p class="fs-4">Question {{ current_question_number }} of {{total_questions}}</p>
+
+<div class="card-group mb-5">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <p class="card-title"><i class="fa-solid fa-fire" style="color: #c80000;"></i> Attack Party</p>
+            <p class="card-text fs-5">{{ current_question.attack_party }}</p>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <p class="card-title"><i class="fa-solid fa-shield" style="color: #0052bd;"></i> Defense Party</p>
+            <p class="card-text fs-5">{{ current_question.defense_party }}</p>
+        </div>
+    </div>
+</div>
+
+
+<form method="post" class="mb-3">
+    <p class="fs-4">What's the effectiveness of the attack?</p>
+    <div class="form-check row gy-2 col-md-6 px-0 mx-1">
+        <input type="radio" class="btn-check" name="effectiveness" id="2x" value="2x" autocomplete="off">
+        <label class="btn btn-outline-primary text-start ps-3" for="2x">2x (Super Effective)</label>
+        <input type="radio" class="btn-check" name="effectiveness" id="1x" value="1x" autocomplete="off" >
+        <label class="btn btn-outline-primary text-start ps-3" for="1x">1x (Effective)</label>
+        <input type="radio" class="btn-check" name="effectiveness" id="0.5x" value="0.5x" autocomplete="off" >
+        <label class="btn btn-outline-primary text-start ps-3" for="0.5x">0.5x (Not Very Effective)</label>
+        <input type="radio" class="btn-check" name="effectiveness" id="0x" value="0x" autocomplete="off">
+        <label class="btn btn-outline-primary text-start ps-3" for="0x">0x (No Effect)</label>
+    </div>
+    {% if current_question_number != total_questions %}
+        <button type="submit" class="btn btn-primary my-3 col-md-2">Next</button>
+    {% else %}
+        <button type="submit" class="btn btn-primary my-3 col-md-2">Submit</button>
+    {% endif %}   
+    
+</form>
+
+
+
+
+
+{% endblock %} 
