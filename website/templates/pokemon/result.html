@@ -35,6 +35,9 @@
         <div class="card-body">
           {% if question.correct_answer == question.user_answer %}
           <div class="card-text text-success">You got it right! The answer is {{question.correct_answer}}</div>
+          {% elif question.user_answer is none %}
+          <div class="card-text text-danger">The answer is {{question.correct_answer}}</div>
+          <div class="card-text text-danger">You missed this one</div>
           {% else %}
           <div class="card-text text-danger">The answer is {{question.correct_answer}}</div>
           <div class="card-text text-danger">You answered {{question.user_answer}}</div>
